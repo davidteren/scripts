@@ -1,8 +1,36 @@
 #!/bin/bash
 
-# Script to check for a package across all Python installations
-# Usage: ./check_python_package.sh package_name
-# Example: ./check_python_package.sh requests
+#===================================================================================
+# check_python_package.sh
+#===================================================================================
+# Description:
+#   This script checks for the presence of a specified Python package across all
+#   Python installations managed by asdf and the system Python installation.
+#
+# Usage:
+#   ./check_python_package.sh package_name
+#
+# Arguments:
+#   package_name - Name of the Python package to check for (case-insensitive)
+#
+# Examples:
+#   ./check_python_package.sh requests
+#   ./check_python_package.sh numpy
+#
+# Requirements:
+#   - macOS
+#   - asdf version manager with Python plugin
+#   - pip package manager
+#
+# Notes:
+#   - The script will check all Python versions managed by asdf
+#   - The system Python installation will also be checked
+#   - The search is case-insensitive
+#   - Exit code 1 if no package name provided
+#
+# Author: David Teren
+# Repository: https://github.com/davidteren/scripts
+#===================================================================================
 
 if [ -z "$1" ]; then
     echo "Please provide a package name"
